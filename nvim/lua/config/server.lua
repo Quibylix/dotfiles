@@ -1,6 +1,7 @@
 return {
   clangd = {
-    cmd = { "clangd", "--query-driver=/usr/bin/gcc" }
+    cmd = { "clangd" },
+    inlay_hints = false
   },
   lua_ls = {
     settings = {
@@ -16,5 +17,6 @@ return {
   },
   ts_ls = {},
   html = {},
-  cssls = {}
+  cssls = {},
+  pyright = {}
 }
