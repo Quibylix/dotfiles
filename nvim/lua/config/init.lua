@@ -1,6 +1,7 @@
 -- Visual
 vim.opt.relativenumber = true
 vim.opt.number = true;
+vim.opt.wrap = false
 
 -- Indentation
 vim.opt.autoindent = true
@@ -16,6 +17,9 @@ vim.g.maplocalleader = " "
 vim.keymap.set("n", "<leader>w", ":w<cr>")
 vim.keymap.set("n", "<leader>q", ":q<cr>")
 vim.keymap.set("n", "<leader>Q", ":q!<cr>")
+vim.keymap.set("n", "<leader>cw", function()
+  vim.opt.wrap = not vim.opt.wrap:get()
+end)
 
 -- Filetypes
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
@@ -23,6 +27,24 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
   callback = function()
     vim.bo.filetype = "env"
   end
+})
+
+-- Diagnostics
+vim.diagnostic.config({
+  virtual_text = true,
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+  severity_sort = true,
+  float = {
+    source = "always",
+    border = "rounded",
+    header = "",
+    prefix = "",
+    format = function(diagnostic)
+      return string.format("%s (%s)", diagnostic.message, diagnostic.source)
+    end
+  }
 })
 
 -- By default, in some projects, the backup copy is created by renaming the original file
