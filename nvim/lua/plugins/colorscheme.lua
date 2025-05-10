@@ -6,6 +6,8 @@ local highlights = {
   { "@lsp.typemod.variable.readonly.typescriptreact", { fg = "${yellow}" } },
   { "@lsp.typemod.variable.readonly.typescript",      { fg = "${yellow}" } },
   { "@lsp.typemod.variable.readonly.javascript",      { fg = "${yellow}" } },
+  { "@lsp.type.member.typescript",                    { fg = "${blue}" } },
+  { "@lsp.type.member.typescriptreact",               { fg = "${blue}" } },
   { "@string.special.url.html",                       { fg = "${blue}", underline = true, italic = true } },
   { "@lsp.mod.defaultLibrary.typescript",             { fg = "${none}" } },
   { "@markup.link.label",                             { fg = "${none}" } },
